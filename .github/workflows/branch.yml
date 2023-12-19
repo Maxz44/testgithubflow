@@ -3,7 +3,7 @@ name: preprod
 on:
   push:
     branches:
-      - "master"
+      - main
 
 jobs:
   prod:
