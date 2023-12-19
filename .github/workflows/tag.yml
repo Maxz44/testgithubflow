@@ -7,11 +7,12 @@ on:
 
 jobs:
   prod:
+    if: github.event.base_ref == 'refs/heads/main' 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: git status
-      - uses: actions/upload-artifact@v4
-        with:
-          path: .
-          retention-days: 1
+      - name: Dump job github var
+        env:
+          GITHUB_VAR: ${{ toJson(github) }}
+        run: echo "$GITHUB_VAR" }}
