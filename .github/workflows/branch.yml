@@ -1,0 +1,13 @@
+name: preprod
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git init
