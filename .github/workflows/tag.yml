@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - "[0-9]+.[0-9]+.[0-9]+"
-    branches-ignore:
-      - "!main"
 
 jobs:
   prod:
@@ -13,3 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: git status
+      - name: Dump job github var
+        env:
+          GITHUB_VAR: ${{ toJson(github) }}
+        run: echo "$GITHUB_VAR" }}
